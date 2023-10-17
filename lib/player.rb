@@ -7,19 +7,19 @@ class Player   #Création du joueur 1
     end
 
     def show_state  #J'affiche un petit message d'amour concernant mes players 
-        puts "La junkie / Le singe #{@name} possède #{@life_points} points de vie"
+        puts " #{@name} possède #{@life_points} points de vie"
     end
 
-    def gets_damage (take_dommage)  #Message en cas de dmg - mort héhé
+    def gets_damage(take_dommage)  #Message en cas de dmg - mort héhé
         @life_points -= take_dommage    #J'assigne une soustraction avec -=
-        @life_points <= 0 ? (puts "La junkie / Le singe #{@name} est MORT (Bolosse)!") : show_state #L'opérateur ternaire ? (...) : permet de controler grace au <=, et si ce n'est pas bon : renvoi ailleur 
+        @life_points <= 0 ? (puts " #{@name} est MORT (Bolosse)!") : show_state #L'opérateur ternaire ? (...) : permet de controler grace au <=, et si ce n'est pas bon : renvoi ailleur 
     end
 
     def attacks(other)
-        puts "Le noob #{@name} attaque le joueur #{other.name}"
+        puts "Notre cher #{@name} attaque le joueur #{other.name}"
         damage = compute_damage   #création d'une variable de damage avec la méthode comput pour un damage aléatoire
-        @name.gets_damage(damage)  #mon joueur attaqué (@name.gets_damage) prend des damages grace (damage)
-        puts " Le/la bouuug inflige #{damage} points de dommages dans la tronche, iiiich"
+        other.gets_damage(damage)  #mon joueur attaqué (@name.gets_damage) prend des damages grace (damage)
+        puts " #{damage} points de dommages dans la tronche, iiiich !!! "
     end
 
     def compute_damage
@@ -28,5 +28,3 @@ class Player   #Création du joueur 1
     
 
 end
-
-binding.pry
