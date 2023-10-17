@@ -15,8 +15,8 @@ class Player   #Création du joueur 1
         @life_points <= 0 ? (puts "La junkie / Le singe #{@name} est MORT (Bolosse)!") : show_state #L'opérateur ternaire ? (...) : permet de controler grace au <=, et si ce n'est pas bon : renvoi ailleur 
     end
 
-    def attacks
-        puts "Le noob #{self.name} attaque le joueur #{@name}"
+    def attacks(other)
+        puts "Le noob #{@name} attaque le joueur #{other.name}"
         damage = compute_damage   #création d'une variable de damage avec la méthode comput pour un damage aléatoire
         @name.gets_damage(damage)  #mon joueur attaqué (@name.gets_damage) prend des damages grace (damage)
         puts " Le/la bouuug inflige #{damage} points de dommages dans la tronche, iiiich"
